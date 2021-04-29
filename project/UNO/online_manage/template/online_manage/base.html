@@ -1,0 +1,298 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Amr Haitham" name="author" />
+    <!-- google font -->
+    <link href="{% static 'online_manage/assets/bundles/material/fonts.css' %}" rel="stylesheet" />
+    <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" /> -->
+    <!-- icons -->
+    <link href="{% static 'online_manage/assets/bundles/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'online_manage/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'online_manage/assets/bundles/material/material-icon.css' %}" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <!--bootstrap -->
+    <link href="{% static 'online_manage/assets/bundles/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- data tables -->
+    <link href="{% static 'online_manage/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link href="{% static 'online_manage/assets/bundles/material/material.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'online_manage/css/material_style.css' %}" rel="stylesheet" />
+    <link href="{% static 'online_manage/css/main.css' %}" rel="stylesheet" />
+    <!-- Theme Styles -->
+    <link href="{% static 'online_manage/css/theme_style.css' %}" id="rt_style_components" rel="stylesheet" type="text/css">
+    <link href="{% static 'online_manage/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'online_manage/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'online_manage/css/responsive.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'online_manage/css/theme-color.css' %}" rel="stylesheet" type="text/css" />
+    <!-- dropzone -->
+    <link href="{% static 'online_manage/assets/bundles/dropzone/dropzone.css' %}" media="screen" rel="stylesheet" />
+    <!-- Date Time item CSS -->
+    <link href="{% static 'online_manage/assets/bundles/jquery.growl/stylesheets/jquery.growl.css' %}" rel="stylesheet">
+    <!-- Growl CSS -->
+    <link href="{% static 'online_manage/assets/bundles/material-datetimepicker/bootstrap-material-datetimepicker.css' %}" rel="stylesheet">
+    <!-- Datapicker -->
+    <link href="{% static 'online_manage/assets/bundles/bootstrap-datepicker/datepicker.css' %}" rel="stylesheet" />
+    <!--select2-->
+    <link href="{% static 'online_manage/assets/bundles/select2/css/select2.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'online_manage/assets/bundles/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- SweetAlert -->
+    <link href="{% static 'online_manage/assets/bundles/sweet-alert/sweetalert.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- favicon -->
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="page-wrapper">
+        <!-- start header -->
+        <div class="page-header navbar navbar-fixed-top">
+            <div class="page-header-inner">
+                <!-- logo start -->
+                <div class="page-logo">
+                    <a href="{% url 'online_manage:base' %}">
+                      <span class="logo-icon fas fa-university " style="margin-left:-5px">
+                      </span>
+                        <span class="logo-default">
+
+                            UN manage
+                        </span>
+                    </a>
+                </div>
+                <!-- logo end -->
+                <ul class="nav navbar-nav navbar-left in">
+                    <li>
+                        <a class="menu-toggler sidebar-toggler" href="#">
+                            <i class="icon-menu">
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- start mobile menu -->
+                <a class="menu-toggler responsive-toggler" data-target=".navbar-collapse" data-toggle="collapse" href="javascript:;">
+                    <span>
+                    </span>
+                </a>
+                <!-- end mobile menu -->
+                <!-- start header menu -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+
+                        <li class="dropdown dropdown-user">
+                            <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;">
+                                <img alt="" class="img-circle" src="">
+                                <span class="username username-hide-on-mobile">
+
+                                </span>
+                                <i class="fas fa-ellipsis-v"></i>
+
+
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="">
+                                        <i class="icon-user">
+                                        </i>
+                                        Profile
+                                    </a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="icon-logout">
+                                        </i>
+                                        Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- end header -->
+        <!-- start page container -->
+        <div class="page-container">
+            <!-- start sidebar menu -->
+            <div class="sidebar-container">
+                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+                    <div class="left-sidemenu" id="remove-scroll">
+                        <ul class="sidemenu page-header-fixed slimscroll-style" data-auto-scroll="true" data-keep-expanded="false" data-slide-speed="200" style="padding-top: 20px">
+
+
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="{% url 'admin:index' %}" target="_blank">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span class="title">
+                                        Admin Panel
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="{% url 'online_manage:list_assignments' %}" >
+                                    <i class="fas fa-stream"></i>
+                                    <span class="title">
+                                        Assignments
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="/admin/online_manage/studentassignmentanswers/" target="_blank">
+                                    <i class="fas fa-scroll"></i>
+                                    <span class="title">
+                                        Assignments answer
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="{% url 'online_manage:list_course' %}" >
+                                    <i class="fas fa-book"></i>
+                                    <span class="title">
+                                        Courses
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="{% url 'online_manage:doctors' %}" >
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span class="title">
+                                        Doctors
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="/admin/online_manage/lectures/" target="_blank">
+                                    <i class="fas fa-chalkboard"></i>
+                                    <span class="title">
+                                        Lectures
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-toggle" href="{% url 'online_manage:students' %}">
+                                    <i class="fas fa-users"></i>
+                                    <span class="title">
+                                      Students information
+                                    </span>
+                                </a>
+                            </li>
+
+                          </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end sidebar menu -->
+            <!-- start page content -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- Your Code Goes Here -->
+                    {% block content %}
+                    <div class="row" style="margin: auto; text-align: center; margin-top: 23%">
+                        <div class="col-sm-12">
+                            <h1 class="text-muted font-weight-bolder" style="font-weight: 1000; font-size: 40px !important" >Hi {{ request.user.username }} <br />Welcome To university manage System</h1>
+                        </div>
+                    </div>
+                    {% endblock content%}
+                    <!-- End code -->
+                </div>
+            </div>
+            <!-- end page content -->
+        </div>
+        <!-- end page container -->
+        <!-- start footer -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                2020 © online manage university by
+                <a class="makerCss" href="#" target="_top">
+                  Eng Amr Haitham
+                </a>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up">
+                </i>
+            </div>
+        </div>
+        <!-- end footer -->
+    </div>
+    <!-- start js include path -->
+    <script src="{% static 'online_manage/assets/bundles/jquery/jquery.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/popper/popper.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/jquery-blockUI/jquery.blockui.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/jquery.slimscroll/jquery.slimscroll.js' %}">
+    </script>
+    <!-- bootstrap -->
+    <script src="{% static 'online_manage/assets/bundles/bootstrap/js/bootstrap.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/bootstrap-switch/js/bootstrap-switch.min.js' %}">
+    </script>
+    <!-- data tables -->
+    <script src="{% static 'online_manage/assets/bundles/datatables/jquery.dataTables.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/data/table-data.js' %}">
+    </script>
+    <!-- Common js-->
+    <script src="{% static 'online_manage/assets/app.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/layout.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/theme-color.js' %}">
+    </script>
+    <!-- Material -->
+    <script src="{% static 'online_manage/assets/bundles/material/material.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/data/getmdl-select.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/material-datetimepicker/moment-with-locales.min.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/material-datetimepicker/bootstrap-material-datetimepicker.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/material-datetimepicker/datetimepicker.js' %}">
+    </script>
+    <!-- dropzone -->
+    <script src="{% static 'online_manage/assets/bundles/dropzone/dropzone.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/bundles/dropzone/dropzone-call.js' %}">
+    </script>
+    <!-- growl -->
+    <script src="{% static 'online_manage/assets/bundles/jquery.growl/javascripts/jquery.growl.js' %}">
+    </script>
+    <!-- Datepicker -->
+    <script src="{% static 'online_manage/assets/bundles/bootstrap-datepicker/bootstrap-datepicker.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/data/datepicker-init.js' %}">
+    </script>
+    <!-- Datetime picker -->
+    <link href="{% static 'online_manage/assets/bundles/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" media="screen" rel="stylesheet" />
+    <!-- Datetime picker -->
+    <script charset="UTF-8" src="{% static 'online_manage/assets/bundles/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js' %}">
+    </script>
+    <script charset="UTF-8" src="{% static 'online_manage/assets/data/bootstrap-datetimepicker-init.js' %}">
+    </script>
+    <!--select2-->
+    <script src="{% static 'online_manage/assets/bundles/select2/js/select2.js' %}">
+    </script>
+    <script src="{% static 'online_manage/assets/data/select2-data.js' %}">
+    </script>
+    <!-- SweetAlert -->
+    <script src="{% static 'online_manage/assets/bundles/sweet-alert/sweetalert.min.js' %}">
+    </script>
+    <!-- Main Script -->
+    <script src="{% static 'online_manage/assets/main.js' %}">
+    </script>
+    <!-- end js include path -->
+    <script src="{% static 'online_manage/assets/fa.js' %}"></script>
+</body>
+
+</html>

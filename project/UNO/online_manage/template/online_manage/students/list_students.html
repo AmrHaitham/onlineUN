@@ -1,0 +1,169 @@
+{% extends "online_manage/base.html" %}
+{% load staticfiles %}
+{% block content %}
+{% csrf_token %}
+<!-- Part One -->
+<div class="page-bar">
+    <div class="page-title-breadcrumb">
+        <div class="pull-left">
+            <div class="page-title">
+                Students List
+            </div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home">
+                </i>
+                <a class="parent-item" href="">
+                    Home
+                </a>
+                <i class="fa fa-angle-right">
+                </i>
+            </li>
+            <li>
+                <a class="parent-item" href="">
+                    Students
+                </a>
+                <i class="fa fa-angle-right">
+                </i>
+            </li>
+            <li class="active">
+                Students List
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- End Part One -->
+<!-- Part Two -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="tabbable-line">
+            <div class="tab-content">
+                <div class="tab-pane active fontawesome-demo" id="tab1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-topline-red">
+                                <div class="card-head">
+                                    <header>
+                                    </header>
+                                    <div class="tools">
+                                        <a class="fa fa-repeat btn-color box-refresh" href="javascript:;">
+                                        </a>
+                                        <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <!-- make permisson here -->
+                                    {% if group == "admin" %}
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="btn-group">
+                                                <a class="btn btn-info" href="/online_manage/add_students/" id="addRow">
+                                                    Add New
+                                                    <i class="fa fa-plus">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <!-- end permisson here -->
+                                    <div class="table-scrollable">
+                                        <table class="table table-hover table-checkable order-column full-width" id="example4">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>
+                                                        Name
+                                                    </th>
+                                                    <th>
+                                                        username
+                                                    </th>
+                                                    <th>
+                                                        year
+                                                    </th>
+                                                    <th>
+                                                        student colage
+                                                    </th>
+                                                    <th>
+                                                        Mobile
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              {% if group == "doctor"%}
+                                                {% for student in students %}
+                                              <tr>
+                                                <td>
+                                                    {{student.user.first_name}} {{student.user.last_name}}
+                                                </td>
+                                                <td>
+                                                    {{student.user}}
+                                                </td>
+                                                <td>
+                                                    {{student.year}}
+                                                </td>
+                                                <td>
+                                                {{student.student_colage}}
+                                                </td>
+                                                <td>
+                                                  {% for student in student.get_phone %}
+                                                  <a >
+                                                      {{student.phone}}
+                                                  </a>
+                                                  {% endfor %}
+                                                </td>
+                                                <td>
+                                                  <a> No actions </a>
+                                                </td>
+                                              </tr>
+                                                {% endfor %}
+                                              {% endif %}
+
+                                              {% if group == "student" %}
+                                              <tr>
+                                                <td>
+                                                    {{students.user.first_name}} {{student.user.last_name}}
+                                                </td>
+                                                <td>
+                                                    {{students.user}}
+                                                </td>
+                                                <td>
+                                                    {{students.year}}
+                                                </td>
+                                                <td>
+                                                {{students.student_colage}}
+                                                </td>
+                                                <td>
+                                                  {% for student in students.get_phone %}
+                                                  <a >
+                                                      {{student.phone}}
+                                                  </a>
+                                                  {% endfor %}
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-xs" href={% url "online_manage:edit_students" %}>
+                                                        <i class="fa fa-pencil">
+                                                        </i>
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                              {% endif %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Part Two -->
+{% endblock content%}
